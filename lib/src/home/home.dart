@@ -1,15 +1,17 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:stonepro/src/home/components/item.dart';
 import 'package:stonepro/src/model/stone.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+@RoutePage()
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeScreenState extends State<HomeScreen> {
   List<Stone> stones = [
     Stone(id: 1, name: "Stone Blue", description: "Diamantada", manufacturer: "Logos", provider: "Atacado Pedras"),
     Stone(id: 1, name: "RedS Stone", description: "Fosca", manufacturer: "Logos", provider: "Pedras&Cia")
