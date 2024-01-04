@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stonepro/src/home/components/item.dart';
 import 'package:stonepro/src/model/stone.dart';
 
 class Home extends StatefulWidget {
@@ -31,26 +32,11 @@ class _HomeState extends State<Home> {
         padding: const EdgeInsets.symmetric(horizontal: 5),
         child: Column(
             children: stones.map((stone) {
-          return Row(
-            children: [
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  margin: const EdgeInsets.only(top: 5),
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(stone.name!),
-                      Text(stone.description!),
-                      Text(stone.provider!),
-                      Text(stone.manufacturer!),
-                      const Divider()
-                    ],
-                  ),
-                ),
-              ),
-            ],
+          return Item(
+            name: stone.name!,
+            description: stone.description!,
+            provider: stone.provider!,
+            manufacturer: stone.manufacturer!,
           );
         }).toList()),
       ),
