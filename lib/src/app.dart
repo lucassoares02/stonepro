@@ -12,7 +12,9 @@ class App extends StatelessWidget {
       routerConfig: _appRouter.config(),
       title: 'Stone Pro',
       debugShowCheckedModeBanner: false,
+      darkTheme: ThemeData.dark(),
       theme: ThemeData(
+        fontFamily: 'Sf',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),

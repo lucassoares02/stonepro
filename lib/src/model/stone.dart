@@ -1,9 +1,14 @@
+import 'package:stonepro/src/model/company.dart';
+import 'package:stonepro/src/model/remain.dart';
+
 class Stone {
   int? id;
   String? name;
   String? description;
-  String? manufacturer;
-  String? provider;
+  Company? manufacturer;
+  Company? provider;
+  String? image;
+  List<Remain?>? remains;
 
   Stone({
     this.id,
@@ -11,14 +16,20 @@ class Stone {
     this.description,
     this.manufacturer,
     this.provider,
+    this.image,
+    this.remains,
   });
 
   Stone.fromJson(Map<String, dynamic> json) {
+    List rem = json['remains'] as List;
+
     id = json['id'];
     name = json['name'];
     description = json['description'];
-    manufacturer = json['manufacturer'];
-    provider = json['provider'];
+    manufacturer = Company.fromJson(json["manufacturer"]);
+    provider = Company.fromJson(json["provider"]);
+    image = json['image'];
+    remains = rem.map((json) => Remain.fromJson(json)).toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -28,6 +39,8 @@ class Stone {
     data['description'] = description;
     data['manufacturer'] = manufacturer;
     data['provider'] = provider;
+    data['image'] = image;
+    data['remains'] = remains;
     return data;
   }
 }
